@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script:wght@400;700&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: min(8vh,8vw);
+    --section-size: min(30vh,30vw);
+    --mark-size: calc(var(--cell-size) * .9);
+    --section-mark-size: calc(var(--section-size) * .9);
+    --x-color: #02552a;
+    --o-color: #800000;
+}
+
+html {
+    overflow: scroll;
+}
+
+body {
+    margin: 0;
+}
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+    grid-template-columns: repeat(3, auto);
+}
+
+.section {
+    width: var(--section-size);
+    height: var(--section-size);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    border: 2px solid black;
+    position: relative;
+}
+
+.section:not(.playable)::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--section-size) * .9);
+    height: calc(var(--section-size) * .9);
+    background-color: #f0f0f0;
+}
+
+.section.x::before,
+.section.x::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--section-mark-size) * .15);
+    height: var(--section-mark-size);
+    background-color: var(--x-color);
+}
+
+.section.x::before {
+    transform: rotate(-45deg);
+}
+
+.section.x::after {
+    transform: rotate(45deg);
+}
+
+.section.o::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--section-mark-size) * .85);
+    height: calc(var(--section-mark-size) * .85);
+    border-radius: 50%;
+    border: calc(var(--section-mark-size) * .15) solid var(--o-color);
+}
+
+.cell {
+    text-align: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.section:not(.x):not(.o) .cell:not(.x):not(.o):hover::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--cell-size) * 0.8);
+    height: calc(var(--cell-size) * 0.8);
+    border: none;
+    background-color: #dadada;
+}
+
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+    background-color: var(--x-color);
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.o::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--mark-size) * .85);
+    height: calc(var(--mark-size) * .85);
+    border-radius: 50%;
+    border: calc(var(--mark-size) * .15) solid var(--o-color);
+}
+
+.cell.bigx::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--section-mark-size) * .15);
+    height: var(--section-mark-size);
+    background-color: var(--x-color);
+}
+
+.cell.bigx::after {
+    --move: calc(0px - 1.41421356 * var(--cell-size) - 2px);
+    transform: rotate(-45deg) translate(0px, var(--move));
+}
+
+:first-child,
+:nth-child(2),
+:nth-child(3) {
+    border-top: none;
+}
+
+:nth-child(3n+1) {
+    border-left: none;
+}
+
+:nth-child(3n+3) {
+    border-right: none;
+}
+
+:last-child,
+:nth-child(8),
+:nth-child(7) {
+    border-bottom: none;
+}
