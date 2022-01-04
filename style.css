@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
 
 *, *::after, *::before {
     box-sizing: border-box;
 }
 
 :root {
-    --cell-size: min(8vh,8vw);
-    --section-size: min(30vh,30vw);
+    --cell-size: min(7.7vh,7.7vw);
+    --section-size: min(29vh,29vw);
     --mark-size: calc(var(--cell-size) * .9);
     --section-mark-size: calc(var(--section-size) * .9);
     --x-color: #02552a;
     --o-color: #800000;
+    --board-size: min(90vh,90vw)
 }
 
 html {
@@ -19,11 +20,36 @@ html {
 
 body {
     margin: 0;
+    font-family: 'Muli', sans-serif;
+}
+
+h2 {
+    font-family: inherit;
+}
+
+.title {
+    height: 100%;
+    font-size: large;
+    color: black;
+    background-color: white;
+    margin:auto;
+}
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    background-color: white;
 }
 
 .board {
-    width: 100vw;
-    height: 100vh;
+    width: var(--board-size);
+    height: var(--board-size);
     display: grid;
     justify-content: center;
     align-content: center;
@@ -95,7 +121,7 @@ body {
     position: relative;
 }
 
-.section:not(.x):not(.o) .cell:not(.x):not(.o):hover::before {
+.section.playable:not(.x):not(.o) .cell:not(.x):not(.o):hover::before {
     content: '';
     position: absolute;
     width: calc(var(--cell-size) * 0.8);

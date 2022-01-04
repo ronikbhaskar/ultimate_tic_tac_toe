@@ -5,6 +5,12 @@ const O_CLASS = "o";
 const TIE_CLASS = "tie";
 const PLAYABLE_CLASS = "playable";
 
+const X_TURN_MESSAGE = "x's turn";
+const O_TURN_MESSAGE = "o's turn";
+const X_WIN_MESSAGE = "x wins";
+const O_WIN_MESSAGE = "o wins";
+const DRAW_MESSAGE = "it's a draw";
+
 // helper class to draw X properly
 // for use in last element
 const BIG_X_CLASS = "bigx"; 
@@ -23,8 +29,12 @@ const WIN_COMBINATIONS = [
 var sectionInPlay = -1;
 
 var xTurn = true;
+var playing = true;
 const sections = document.querySelectorAll("[section]");
 const board = document.getElementById("board");
+const title = document.getElementById("title");
+
+title.innerHTML = X_TURN_MESSAGE;
 
 sections.forEach(section => {
     section.classList.add(PLAYABLE_CLASS);
@@ -32,6 +42,10 @@ sections.forEach(section => {
 });
 
 function handleClick(e) {
+    if (!playing) { // check if game is over
+        return;
+    }
+
     if (e.target.className !== "cell" // finished cell
     || !e.currentTarget.classList.contains(PLAYABLE_CLASS)) { // not playable
         return;
@@ -66,16 +80,18 @@ function handleClick(e) {
     updateSectionInPlay(cell, section);
 
     xTurn = !xTurn; // switch player
+    title.innerHTML = xTurn ? X_TURN_MESSAGE : O_TURN_MESSAGE;
 }
 
 function gameOver(currentClass, win) {
-    sections.forEach(section => {
-        section.classList.remove(PLAYABLE_CLASS);
-    });
+    playing = false;
+    sections.forEach(section => { // seems ridiculous, but it's cosmetic
+        section.classList.add(PLAYABLE_CLASS);
+    }); 
     if (win) {
-        // do something
+        title.innerHTML = currentClass === X_CLASS ? X_WIN_MESSAGE : O_WIN_MESSAGE;
     } else {
-        // do a different thing
+        title.innerHTML = DRAW_MESSAGE;
     }
 }
 
