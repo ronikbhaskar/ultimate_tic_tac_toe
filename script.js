@@ -34,7 +34,7 @@ const sections = document.querySelectorAll("[section]");
 const board = document.getElementById("board");
 const title = document.getElementById("title");
 
-title.innerHTML = DRAW_MESSAGE;
+title.innerHTML = X_TURN_MESSAGE;
 
 sections.forEach(section => {
     section.classList.add(PLAYABLE_CLASS);
