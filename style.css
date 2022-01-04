@@ -80,6 +80,10 @@ body {
     border: calc(var(--section-mark-size) * .15) solid var(--o-color);
 }
 
+.section.o::before {
+    background-color: inherit;
+}
+
 .cell {
     text-align: center;
     width: var(--cell-size);
