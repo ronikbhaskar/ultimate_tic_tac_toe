@@ -77,7 +77,7 @@ h2 {
     position: relative;
 }
 
-.section:not(.tie):not(.playable)::before {
+.section:not(.playable)::before {
     content: '';
     position: absolute;
     width: calc(var(--section-size) * .9);
