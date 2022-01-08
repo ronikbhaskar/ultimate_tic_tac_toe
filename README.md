@@ -1,7 +1,5 @@
-# Ultimate Tic Tac Toe
-recreating the intensely strategic game of x's and o's from grade school
-
-You can find the game here: https://u3t.netlify.app/
+# [Ultimate Tic Tac Toe](https://u3t.netlify.app/)
+<img src="ultimate_tic_tac_toe_game.png" />
 
 ## Rules
 
