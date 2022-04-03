@@ -1,4 +1,5 @@
-# [Ultimate Tic Tac Toe](https://u3t.netlify.app/)
+# [Ultimate Tic Tac Toe](https://ronikbhaskar.github.io/ultimate_tic_tac_toe/)
+https://u3t.netlify.app/ is deprecated, but I like the URL, so it'll keep working.
 <img src="ultimate_tic_tac_toe_game.png" />
 
 ## Rules
