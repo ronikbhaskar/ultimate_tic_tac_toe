@@ -7,8 +7,8 @@ const PLAYABLE_CLASS = "playable";
 
 const X_TURN_MESSAGE = "x's turn";
 const O_TURN_MESSAGE = "o's turn";
-const X_WIN_MESSAGE = "x wins. <a href=\"https://github.com/ronikbhaskar/ultimate_tic_tac_toe\">ronik bhaskar</a>, 2022.";
-const O_WIN_MESSAGE = "o wins. <a href=\"https://github.com/ronikbhaskar/ultimate_tic_tac_toe\">ronik bhaskar</a>, 2022.";
+const X_WIN_MESSAGE = "x wins. <a href=\"https://ronikbhaskar.github.io\">ronik bhaskar</a>, 2022.";
+const O_WIN_MESSAGE = "o wins. <a href=\"https://ronikbhaskar.github.io\">ronik bhaskar</a>, 2022.";
 const DRAW_MESSAGE = "it's a draw. <a href=\"https://github.com/ronikbhaskar/ultimate_tic_tac_toe\">ronik bhaskar</a>, 2022.";
 
 // helper class to draw X properly
